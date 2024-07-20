@@ -7,15 +7,13 @@
 import requests
 import json
 
-# client_id = "__"
-# client_secret = "__"
 url = "https://api.foursquare.com/v3/places/search"
 apikey = 'fsq3nIbYxK1supV4kcCf3K0hs0BKXbvKQXg5IgkpiRjWfe8='
 
 
 city = input('Город: ')
 query = input('Ищем: ')
-# rating
+
 headers = {"accept": "application/json", "authorization": apikey}
 params = {'near': city, 'query': query,'limit': 10}
 
