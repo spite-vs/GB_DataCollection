@@ -9,11 +9,11 @@ class UnsplashSpider(scrapy.Spider):
 
     def parse(self, response):
         for category in response.xpath('//*[@class="wuIW2 R6ToQ"]/@href').extract():
-            yield scrapy.Request(response.urljoin(category), callback=self.parse_category)
+            yield scrapy.Request(response.urljoin(category), callback=self.parse_item)
         
 
 
-    def parse_category(self, response):
+    def parse_item(self, response):
         category = response.url.split('/')[-1]
         urls = response.xpath('//*[@class="wdUrX"]/img[2]/@src').extract()
         names = []
